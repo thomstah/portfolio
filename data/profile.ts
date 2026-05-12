@@ -50,6 +50,16 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    company: 'CVS Health',
+    role: 'Break Through Tech Sprinternship',
+    period: '2025 – May 2026',
+    bullets: [
+      'Selected for CVS Health\'s Break Through Tech sprinternship, a competitive program for underrepresented students in tech.',
+      'Collaborated with a team to design and build a software solution addressing a real business challenge.',
+      'Gained hands-on industry experience working alongside CVS Health engineers and mentors.',
+    ],
+  },
+  {
     company: 'Open Ledger',
     role: 'Front-end Developer',
     period: 'Feb. 2026 – Present',
@@ -75,16 +85,6 @@ export const experiences: Experience[] = [
     period: 'May 2025 – Present',
     bullets: [
       'Leading external relations and partnerships for one of the nation\'s top SASE chapters.',
-    ],
-  },
-  {
-    company: 'CVS Health',
-    role: 'Break Through Tech Sprinternship',
-    period: '2025 – May 2026',
-    bullets: [
-      'Selected for CVS Health\'s Break Through Tech sprinternship, a competitive program for underrepresented students in tech.',
-      'Collaborated with a team to design and build a software solution addressing a real business challenge.',
-      'Gained hands-on industry experience working alongside CVS Health engineers and mentors.',
     ],
   },
   {
