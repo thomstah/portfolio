@@ -54,9 +54,10 @@ export const experiences: Experience[] = [
     role: 'Break Through Tech Sprinternship',
     period: '2025 – May 2026',
     bullets: [
-      'Selected for CVS Health\'s Break Through Tech sprinternship, a competitive program for underrepresented students in tech.',
-      'Collaborated with a team to design and build a software solution addressing a real business challenge.',
-      'Gained hands-on industry experience working alongside CVS Health engineers and mentors.',
+      'Designing and building an AI-powered monitoring framework for GCP Airflow pipelines that detects failures in real time — addressing a production problem where manual triage of missing source files, corrupted data, and schema mismatches was causing SLA breaches and operational overhead.',
+      'Implementing intelligent root-cause analysis and automated remediation so pipelines can self-heal without manual intervention, reducing alert noise by classifying transient, intermittent, and recurring failures using AI/ML.',
+      'Building a React/JavaScript dashboard that gives engineers clear visibility into pipeline health, failure patterns, and recovery actions — turning raw Airflow logs into actionable insights.',
+      'Stack: Python, Flask (REST APIs), JavaScript/React, HTML/CSS, PostgreSQL, BigQuery (GCP), Apache Airflow, GitHub Copilot, AI/ML.',
     ],
   },
   {
