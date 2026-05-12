@@ -5,6 +5,7 @@ import { PortfolioNav, NAV_HEIGHT_PX } from '../components/PortfolioNav';
 import { BioSection } from '../components/BioSection';
 import { SkillsSection } from '../components/SkillsSection';
 import { ProjectsSection } from '../components/ProjectsSection';
+import { ExperienceSection } from '../components/ExperienceSection';
 import { ContactSection } from '../components/ContactSection';
 import { colors, animation } from '../lib/tokens';
 
@@ -25,6 +26,7 @@ export default function Page() {
       >
         <BioSection />
         <SkillsSection />
+        <ExperienceSection />
         <ProjectsSection />
         <ContactSection />
       </main>

@@ -46,11 +46,35 @@ export function BioSection() {
           fontSize: '14px',
           color: colors.text,
           lineHeight: 1.6,
-          marginBottom: '24px',
+          marginBottom: '20px',
+          whiteSpace: 'pre-line',
         }}
       >
         {profile.bio}
       </p>
+      <ul
+        style={{
+          listStyle: 'none',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '6px',
+          marginBottom: '28px',
+        }}
+      >
+        {profile.funFacts.map((fact) => (
+          <li
+            key={fact}
+            style={{
+              fontSize: '13px',
+              color: colors.textMuted,
+              paddingLeft: '12px',
+              borderLeft: `2px solid ${colors.rule}`,
+            }}
+          >
+            {fact}
+          </li>
+        ))}
+      </ul>
       <div style={{ display: 'flex', gap: '16px' }}>
         <a
           href={profile.github}

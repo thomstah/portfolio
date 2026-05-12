@@ -18,6 +18,11 @@ describe('PortfolioNav', () => {
     expect(screen.getByTestId('nav-link-skills')).toBeInTheDocument();
   });
 
+  it('renders the experience section link', () => {
+    render(<PortfolioNav />);
+    expect(screen.getByTestId('nav-link-experience')).toBeInTheDocument();
+  });
+
   it('renders the projects section link', () => {
     render(<PortfolioNav />);
     expect(screen.getByTestId('nav-link-projects')).toBeInTheDocument();

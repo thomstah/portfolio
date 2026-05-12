@@ -17,7 +17,7 @@ describe('BioSection', () => {
 
   it('renders the title', () => {
     render(<BioSection />);
-    expect(screen.getByText('SOFTWARE ENGINEER')).toBeInTheDocument();
+    expect(screen.getByText('SOFTWARE ENGINEERING STUDENT · UTA · DFW')).toBeInTheDocument();
   });
 
   it('renders the github link', () => {

@@ -1,10 +1,11 @@
 import { colors, fontSizes } from '../lib/tokens';
 
 const SECTIONS = [
-  { label: 'BIO',      href: '#bio' },
-  { label: 'SKILLS',   href: '#skills' },
-  { label: 'PROJECTS', href: '#projects' },
-  { label: 'CONTACT',  href: '#contact' },
+  { label: 'BIO',        href: '#bio' },
+  { label: 'SKILLS',     href: '#skills' },
+  { label: 'EXPERIENCE', href: '#experience' },
+  { label: 'PROJECTS',   href: '#projects' },
+  { label: 'CONTACT',    href: '#contact' },
 ] as const;
 
 export const NAV_HEIGHT_PX = 48;
