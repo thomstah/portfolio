@@ -52,7 +52,7 @@ export const experiences: Experience[] = [
   {
     company: 'CVS Health',
     role: 'Break Through Tech Sprinternship',
-    period: '2025 – May 2026',
+    period: 'May 2026',
     bullets: [
       'Designing and building an AI-powered monitoring framework for GCP Airflow pipelines that detects failures in real time — addressing a production problem where manual triage of missing source files, corrupted data, and schema mismatches was causing SLA breaches and operational overhead.',
       'Implementing intelligent root-cause analysis and automated remediation so pipelines can self-heal without manual intervention, reducing alert noise by classifying transient, intermittent, and recurring failures using AI/ML.',
