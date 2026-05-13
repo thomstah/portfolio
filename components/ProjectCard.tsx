@@ -168,7 +168,7 @@ export function ProjectCard({ project }: Props) {
             padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: '16px',
           }}>
             <button onClick={() => setOpen(false)} style={{ position: 'absolute', top: '16px', right: '16px', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-pixelify-sans)', fontSize: '14px', color: colors.textMuted }}>✕</button>
-            <h3 style={{ fontFamily: 'var(--font-pixelify-sans)', fontSize: fontSizes.name, fontWeight: 700, color: titleC, paddingRight: '24px' }}>
+            <h3 style={{ fontFamily: 'var(--font-pixelify-sans)', fontSize: cardTitleSize, fontWeight: 700, color: titleC, paddingRight: '24px' }}>
               {project.title}
             </h3>
             <p style={{ fontSize: '13px', color: colors.textMuted, lineHeight: 1.6 }}>{project.description}</p>
