@@ -17,13 +17,22 @@ html, body {
   background-color: #0d0d0d;
 }
 
-/* Responsive show/hide */
+/* Responsive show/hide — flex children */
 .desktop-only { display: flex; }
 .mobile-only  { display: none; }
 
 @media (max-width: 640px) {
   .desktop-only { display: none !important; }
   .mobile-only  { display: flex !important; }
+}
+
+/* Responsive show/hide — block children (cards, etc.) */
+.desktop-block { display: block; }
+.mobile-block  { display: none; }
+
+@media (max-width: 640px) {
+  .desktop-block { display: none !important; }
+  .mobile-block  { display: block !important; }
 }
 
 /* Responsive project grid */

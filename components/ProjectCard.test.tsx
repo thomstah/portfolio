@@ -12,12 +12,11 @@ const baseProject: Project = {
 describe('ProjectCard', () => {
   it('renders the project title', () => {
     render(<ProjectCard project={baseProject} />);
-    expect(screen.getByText('Test Project')).toBeInTheDocument();
+    expect(screen.getAllByText('Test Project').length).toBeGreaterThan(0);
   });
 
-  it('renders the project description inside modal after click', () => {
+  it('renders the project description', () => {
     render(<ProjectCard project={baseProject} />);
-    fireEvent.click(screen.getByTestId('project-card'));
     expect(screen.getByText('A test description.')).toBeInTheDocument();
   });
 
@@ -29,27 +28,23 @@ describe('ProjectCard', () => {
 
   it('omits github link when not provided', () => {
     render(<ProjectCard project={baseProject} />);
-    fireEvent.click(screen.getByTestId('project-card'));
     expect(screen.queryByTestId('project-github-link')).not.toBeInTheDocument();
   });
 
   it('omits demo link when not provided', () => {
     render(<ProjectCard project={baseProject} />);
-    fireEvent.click(screen.getByTestId('project-card'));
     expect(screen.queryByTestId('project-demo-link')).not.toBeInTheDocument();
   });
 
-  it('renders github link in modal when provided', () => {
+  it('renders github link when provided', () => {
     const project = { ...baseProject, github: 'https://github.com/thomstah/test' };
     render(<ProjectCard project={project} />);
-    fireEvent.click(screen.getByTestId('project-card'));
     expect(screen.getByTestId('project-github-link')).toBeInTheDocument();
   });
 
-  it('renders demo link in modal when provided', () => {
+  it('renders demo link when provided', () => {
     const project = { ...baseProject, demo: 'https://example.com' };
     render(<ProjectCard project={project} />);
-    fireEvent.click(screen.getByTestId('project-card'));
     expect(screen.getByTestId('project-demo-link')).toBeInTheDocument();
   });
 });
