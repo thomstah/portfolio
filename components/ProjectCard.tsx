@@ -35,11 +35,12 @@ export function ProjectCard({ project }: Props) {
   const [open,      setOpen]      = useState(false);
   const [modalIdx,  setModalIdx]  = useState(0);
 
-  const images  = project.images ?? [];
-  const accent  = project.accentColor;
-  const border  = accent ?? colors.rule;
-  const titleC  = accent ?? colors.text;
-  const bgTint  = accent ? `${accent}0d` : 'transparent';
+  const images     = project.images ?? [];
+  const accent     = project.accentColor;
+  const border     = accent ?? colors.rule;
+  const titleC     = accent ?? colors.text;
+  const bgTint     = accent ? `${accent}0d` : 'transparent';
+  const cardTitleSize = project.title.length >= 13 ? '15px' : '20px';
 
   function prevDesktop() { setDesktopIdx((i) => (i - 1 + images.length) % images.length); }
   function nextDesktop() { setDesktopIdx((i) => (i + 1) % images.length); }
@@ -71,7 +72,7 @@ export function ProjectCard({ project }: Props) {
         <h3
           style={{
             fontFamily: 'var(--font-pixelify-sans)',
-            fontSize:   '20px',
+            fontSize:   cardTitleSize,
             fontWeight: 700,
             color:      titleC,
           }}
@@ -146,7 +147,7 @@ export function ProjectCard({ project }: Props) {
           cursor:          'pointer',
         }}
       >
-        <h3 style={{ fontFamily: 'var(--font-pixelify-sans)', fontSize: '20px', fontWeight: 700, color: titleC }}>
+        <h3 style={{ fontFamily: 'var(--font-pixelify-sans)', fontSize: cardTitleSize, fontWeight: 700, color: titleC }}>
           {project.title}
         </h3>
         {tags}
