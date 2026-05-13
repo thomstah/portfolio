@@ -19,6 +19,8 @@ export const projects: Project[] = [
     title: 'MavBeats',
     description: 'Web platform revealing campus music trends at UTA — real-time genre insights and Top 10 charts. Grew to 900+ students using Spotify auth, Supabase, and Recharts for interactive data visualizations.',
     tags: ['JavaScript', 'React', 'Next.js', 'Node.js', 'Spotify API', 'Supabase', 'PostgreSQL'],
+    github: 'https://github.com/tancaotrannn/CSE3311',
+    demo: 'https://mavbeats.vercel.app',
   },
   {
     title: 'Personal Site',
