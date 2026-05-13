@@ -32,13 +32,7 @@ export function ProjectsSection() {
       >
         PROJECTS
       </h2>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '16px',
-        }}
-      >
+      <div className="projects-grid">
         {projects.map((project) => (
           <ProjectCard key={project.title} project={project} />
         ))}

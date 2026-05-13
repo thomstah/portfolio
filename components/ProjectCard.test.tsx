@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { ProjectCard } from './ProjectCard';
 import type { Project } from '../data/projects';
 
@@ -15,36 +15,41 @@ describe('ProjectCard', () => {
     expect(screen.getByText('Test Project')).toBeInTheDocument();
   });
 
-  it('renders the project description', () => {
+  it('renders the project description inside modal after click', () => {
     render(<ProjectCard project={baseProject} />);
+    fireEvent.click(screen.getByTestId('project-card'));
     expect(screen.getByText('A test description.')).toBeInTheDocument();
   });
 
   it('renders all tags', () => {
     render(<ProjectCard project={baseProject} />);
-    expect(screen.getByText('TypeScript')).toBeInTheDocument();
-    expect(screen.getByText('React')).toBeInTheDocument();
+    expect(screen.getAllByText('TypeScript').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('React').length).toBeGreaterThan(0);
   });
 
   it('omits github link when not provided', () => {
     render(<ProjectCard project={baseProject} />);
+    fireEvent.click(screen.getByTestId('project-card'));
     expect(screen.queryByTestId('project-github-link')).not.toBeInTheDocument();
   });
 
   it('omits demo link when not provided', () => {
     render(<ProjectCard project={baseProject} />);
+    fireEvent.click(screen.getByTestId('project-card'));
     expect(screen.queryByTestId('project-demo-link')).not.toBeInTheDocument();
   });
 
-  it('renders github link when provided', () => {
+  it('renders github link in modal when provided', () => {
     const project = { ...baseProject, github: 'https://github.com/thomstah/test' };
     render(<ProjectCard project={project} />);
+    fireEvent.click(screen.getByTestId('project-card'));
     expect(screen.getByTestId('project-github-link')).toBeInTheDocument();
   });
 
-  it('renders demo link when provided', () => {
+  it('renders demo link in modal when provided', () => {
     const project = { ...baseProject, demo: 'https://example.com' };
     render(<ProjectCard project={project} />);
+    fireEvent.click(screen.getByTestId('project-card'));
     expect(screen.getByTestId('project-demo-link')).toBeInTheDocument();
   });
 });

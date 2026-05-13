@@ -1,14 +1,15 @@
 export const colors = {
-  background: '#faf9f6',
-  text: '#111111',
-  textMuted: '#aaaaaa',
-  rule: '#e0e0e0',
+  background: '#0d0d0d',
+  surface:    '#1a1a1a',
+  text:       '#e2e2e2',
+  textMuted:  '#888888',
+  rule:       '#2a2a2a',
 } as const;
 
 export const fontSizes = {
-  name: '30px',
-  subtitle: '10px',
-  label: '9px',
+  name:     '30px',
+  subtitle: '12px',
+  label:    '11px',
 } as const;
 
 export const animation = {

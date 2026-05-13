@@ -14,5 +14,27 @@ html {
 
 html, body {
   height: 100%;
-  background-color: #faf9f6;
+  background-color: #0d0d0d;
+}
+
+/* Responsive show/hide */
+.desktop-only { display: flex; }
+.mobile-only  { display: none; }
+
+@media (max-width: 640px) {
+  .desktop-only { display: none !important; }
+  .mobile-only  { display: flex !important; }
+}
+
+/* Responsive project grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
