@@ -145,7 +145,7 @@ export function ProjectCard({ project }: Props) {
           cursor:          'pointer',
         }}
       >
-        <h3 style={{ fontFamily: 'var(--font-pixelify-sans)', fontSize: fontSizes.name, fontWeight: 700, color: titleC }}>
+        <h3 style={{ fontFamily: 'var(--font-pixelify-sans)', fontSize: '20px', fontWeight: 700, color: titleC }}>
           {project.title}
         </h3>
         {tags}
