@@ -48,6 +48,24 @@ export function ProjectCard({ project }: Props) {
           </span>
         ))}
       </div>
+      {project.images && project.images.length > 0 && (
+        <div style={{ display: 'flex', gap: '10px', marginTop: '8px', overflowX: 'auto' }}>
+          {project.images.map((src) => (
+            <img
+              key={src}
+              src={src}
+              alt={`${project.title} screenshot`}
+              style={{
+                height: '220px',
+                width: 'auto',
+                borderRadius: '12px',
+                border: `1px solid ${colors.rule}`,
+                flexShrink: 0,
+              }}
+            />
+          ))}
+        </div>
+      )}
       {(project.github || project.demo) && (
         <div style={{ display: 'flex', gap: '16px', marginTop: '4px' }}>
           {project.github && (

@@ -2,6 +2,7 @@ export interface Project {
   title: string;
   description: string;
   tags: string[];
+  images?: string[];
   github?: string;
   demo?: string;
 }
@@ -11,6 +12,7 @@ export const projects: Project[] = [
     title: 'DayNote',
     description: 'BeReal-inspired iOS journaling app with daily streak tracking, Core Data persistence, and push notification reminders. Submitted to the Swift Student Challenge. Supports 500+ entries with <100ms save/load times.',
     tags: ['Swift', 'SwiftUI', 'Core Data', 'UserDefaults', 'RESTful API'],
+    images: ['/projects/daynote-home.png', '/projects/daynote-history.png'],
   },
   {
     title: 'MavBeats',
