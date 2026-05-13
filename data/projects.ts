@@ -23,6 +23,12 @@ export const projects: Project[] = [
     demo: 'https://mavbeats.vercel.app',
   },
   {
+    title: 'Purr4Furr',
+    description: 'Mobile dating app for the furry community built at STEM Connect Hackathon Fall 2025. Features swipe-based discovery, intelligent matching, real-time messaging, and fursona-based identity profiles.',
+    tags: ['TypeScript', 'React Native', 'Expo', 'Supabase', 'SQL'],
+    demo: 'https://devpost.com/software/purr4furr',
+  },
+  {
     title: 'Personal Site',
     description: 'Pixel-art personal hub built with Next.js, Turborepo, and a custom LPC spritesheet character.',
     tags: ['TypeScript', 'Next.js', 'React'],
