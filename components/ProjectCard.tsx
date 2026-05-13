@@ -57,11 +57,9 @@ export function ProjectCard({ project }: Props) {
       <div
         className="desktop-block"
         style={{
-          border:        `1px solid ${colors.rule}`,
-          padding:       '20px',
-          display:       'flex',
-          flexDirection: 'column',
-          gap:           '10px',
+          border:  `1px solid ${colors.rule}`,
+          padding: '20px',
+          gap:     '10px',
         }}
       >
         <h3
@@ -138,8 +136,6 @@ export function ProjectCard({ project }: Props) {
           border:          `1px solid ${colors.rule}`,
           backgroundColor: 'transparent',
           padding:         '16px',
-          display:         'flex',
-          flexDirection:   'column',
           gap:             '10px',
           cursor:          'pointer',
         }}

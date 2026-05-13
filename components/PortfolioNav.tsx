@@ -67,13 +67,12 @@ export function PortfolioNav() {
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
           style={{
-            background: 'none',
-            border:     'none',
-            cursor:     'pointer',
-            display:    'flex',
+            background:    'none',
+            border:        'none',
+            cursor:        'pointer',
             flexDirection: 'column',
-            gap:        '5px',
-            padding:    '4px',
+            gap:           '5px',
+            padding:       '4px',
           }}
         >
           {open ? (

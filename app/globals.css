@@ -18,21 +18,21 @@ html, body {
 }
 
 /* Responsive show/hide — flex children */
-.desktop-only { display: flex; }
-.mobile-only  { display: none; }
+.desktop-only { display: flex !important; }
+.mobile-only  { display: none !important; }
 
 @media (max-width: 640px) {
   .desktop-only { display: none !important; }
   .mobile-only  { display: flex !important; }
 }
 
-/* Responsive show/hide — block children (cards, etc.) */
-.desktop-block { display: block; }
-.mobile-block  { display: none; }
+/* Responsive show/hide — card columns */
+.desktop-block { display: flex !important; flex-direction: column; }
+.mobile-block  { display: none !important; }
 
 @media (max-width: 640px) {
   .desktop-block { display: none !important; }
-  .mobile-block  { display: block !important; }
+  .mobile-block  { display: flex !important; flex-direction: column; }
 }
 
 /* Responsive project grid */
