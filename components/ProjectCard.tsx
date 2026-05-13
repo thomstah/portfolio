@@ -35,7 +35,11 @@ export function ProjectCard({ project }: Props) {
   const [open,      setOpen]      = useState(false);
   const [modalIdx,  setModalIdx]  = useState(0);
 
-  const images = project.images ?? [];
+  const images  = project.images ?? [];
+  const accent  = project.accentColor;
+  const border  = accent ?? colors.rule;
+  const titleC  = accent ?? colors.text;
+  const bgTint  = accent ? `${accent}0d` : 'transparent';
 
   function prevDesktop() { setDesktopIdx((i) => (i - 1 + images.length) % images.length); }
   function nextDesktop() { setDesktopIdx((i) => (i + 1) % images.length); }
@@ -57,9 +61,10 @@ export function ProjectCard({ project }: Props) {
       <div
         className="desktop-block"
         style={{
-          border:  `1px solid ${colors.rule}`,
-          padding: '20px',
-          gap:     '10px',
+          border:          `1px solid ${border}`,
+          backgroundColor: bgTint,
+          padding:         '20px',
+          gap:             '10px',
         }}
       >
         <h3
@@ -67,7 +72,7 @@ export function ProjectCard({ project }: Props) {
             fontFamily: 'var(--font-pixelify-sans)',
             fontSize:   fontSizes.name,
             fontWeight: 700,
-            color:      colors.text,
+            color:      titleC,
           }}
         >
           {project.title}
@@ -133,14 +138,14 @@ export function ProjectCard({ project }: Props) {
         className="mobile-block"
         onClick={() => { setModalIdx(0); setOpen(true); }}
         style={{
-          border:          `1px solid ${colors.rule}`,
-          backgroundColor: 'transparent',
+          border:          `1px solid ${border}`,
+          backgroundColor: bgTint,
           padding:         '16px',
           gap:             '10px',
           cursor:          'pointer',
         }}
       >
-        <h3 style={{ fontFamily: 'var(--font-pixelify-sans)', fontSize: fontSizes.name, fontWeight: 700, color: colors.text }}>
+        <h3 style={{ fontFamily: 'var(--font-pixelify-sans)', fontSize: fontSizes.name, fontWeight: 700, color: titleC }}>
           {project.title}
         </h3>
         {tags}
@@ -159,9 +164,10 @@ export function ProjectCard({ project }: Props) {
             position: 'relative', backgroundColor: colors.surface, border: `1px solid ${colors.rule}`,
             width: '100%', maxWidth: '520px', maxHeight: '85vh', overflowY: 'auto',
             padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: '16px',
+            border: `1px solid ${border}`, backgroundColor: colors.surface,
           }}>
             <button onClick={() => setOpen(false)} style={{ position: 'absolute', top: '16px', right: '16px', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-pixelify-sans)', fontSize: '14px', color: colors.textMuted }}>✕</button>
-            <h3 style={{ fontFamily: 'var(--font-pixelify-sans)', fontSize: fontSizes.name, fontWeight: 700, color: colors.text, paddingRight: '24px' }}>
+            <h3 style={{ fontFamily: 'var(--font-pixelify-sans)', fontSize: fontSizes.name, fontWeight: 700, color: titleC, paddingRight: '24px' }}>
               {project.title}
             </h3>
             <p style={{ fontSize: '13px', color: colors.textMuted, lineHeight: 1.6 }}>{project.description}</p>

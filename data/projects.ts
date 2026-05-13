@@ -5,6 +5,7 @@ export interface Project {
   images?: string[];
   github?: string;
   demo?: string;
+  accentColor?: string;
 }
 
 export const projects: Project[] = [
@@ -21,6 +22,14 @@ export const projects: Project[] = [
     tags: ['JavaScript', 'React', 'Next.js', 'Node.js', 'Spotify API', 'Supabase', 'PostgreSQL'],
     github: 'https://github.com/tancaotrannn/CSE3311',
     demo: 'https://mavbeats.vercel.app',
+  },
+  {
+    title: 'FromMySilence',
+    description: 'A digital wall for unspoken thoughts — inspired by The Unsent Project. Users anonymously post messages to named recipients that were never sent. Built with real-time Supabase sync and a clean, distraction-free interface.',
+    tags: ['TypeScript', 'React', 'Tailwind CSS', 'Supabase', 'Vite'],
+    github: 'https://github.com/thomstah/frommysilence',
+    demo: 'https://thomstah.github.io/FromMySilence',
+    accentColor: '#a78bfa',
   },
   {
     title: 'Purr4Furr',
