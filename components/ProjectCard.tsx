@@ -161,10 +161,9 @@ export function ProjectCard({ project }: Props) {
         <div style={{ position: 'fixed', inset: 0, zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px' }}>
           <div onClick={() => setOpen(false)} style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.85)' }} />
           <div style={{
-            position: 'relative', backgroundColor: colors.surface, border: `1px solid ${colors.rule}`,
+            position: 'relative', backgroundColor: colors.surface, border: `1px solid ${border}`,
             width: '100%', maxWidth: '520px', maxHeight: '85vh', overflowY: 'auto',
             padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: '16px',
-            border: `1px solid ${border}`, backgroundColor: colors.surface,
           }}>
             <button onClick={() => setOpen(false)} style={{ position: 'absolute', top: '16px', right: '16px', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-pixelify-sans)', fontSize: '14px', color: colors.textMuted }}>✕</button>
             <h3 style={{ fontFamily: 'var(--font-pixelify-sans)', fontSize: fontSizes.name, fontWeight: 700, color: titleC, paddingRight: '24px' }}>
