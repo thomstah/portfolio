@@ -65,12 +65,13 @@ export function ProjectCard({ project }: Props) {
           backgroundColor: bgTint,
           padding:         '20px',
           gap:             '10px',
+          height:          '100%',
         }}
       >
         <h3
           style={{
             fontFamily: 'var(--font-pixelify-sans)',
-            fontSize:   fontSizes.name,
+            fontSize:   '20px',
             fontWeight: 700,
             color:      titleC,
           }}
