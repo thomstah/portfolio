@@ -19,6 +19,19 @@ export function BioSection() {
         margin: '0 auto',
       }}
     >
+      <img
+        src="/headshot.png"
+        alt="Thommy Xay"
+        style={{
+          width:        '96px',
+          height:       '96px',
+          objectFit:    'cover',
+          objectPosition: 'center top',
+          borderRadius: '50%',
+          marginBottom: '20px',
+          border:       `2px solid ${colors.rule}`,
+        }}
+      />
       <h1
         style={{
           fontFamily: 'var(--font-pixelify-sans)',
