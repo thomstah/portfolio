@@ -13,6 +13,7 @@ export const projects: Project[] = [
     description: 'BeReal-inspired iOS journaling app with daily streak tracking, Core Data persistence, and push notification reminders. Submitted to the Swift Student Challenge. Supports 500+ entries with <100ms save/load times.',
     tags: ['Swift', 'SwiftUI', 'Core Data', 'UserDefaults', 'RESTful API'],
     images: ['/projects/daynote-home.png', '/projects/daynote-history.png'],
+    github: 'https://github.com/thomstah/DayNote',
   },
   {
     title: 'MavBeats',
