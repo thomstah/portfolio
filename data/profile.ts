@@ -82,10 +82,18 @@ export const experiences: Experience[] = [
   },
   {
     company: 'Society of Asian Scientists and Engineers (SASE) — UTA',
-    role: 'Vice President External',
-    period: 'May 2025 – Present',
+    role: 'Historian',
+    period: 'May 2026 – Present',
     bullets: [
-      'Leading external relations and partnerships for one of the nation\'s top SASE chapters.',
+      'Documenting and preserving chapter history, events, and milestones for one of the nation\'s top SASE chapters.',
+    ],
+  },
+  {
+    company: 'Society of Asian Scientists and Engineers (SASE) — UTA',
+    role: 'Vice President External',
+    period: 'May 2025 – May 2026',
+    bullets: [
+      'Led external relations and partnerships for one of the nation\'s top SASE chapters.',
     ],
   },
   {
