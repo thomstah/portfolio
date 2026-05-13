@@ -51,7 +51,7 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     company: 'CVS Health',
-    role: 'Break Through Tech Sprinternship',
+    role: 'Software Engineering Intern',
     period: 'May 2026',
     bullets: [
       'Building an AI-powered monitoring framework for GCP Airflow pipelines with real-time failure detection and automated root-cause analysis — eliminating manual triage that caused SLA breaches.',
