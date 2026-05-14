@@ -80,6 +80,9 @@ export const experiences: Experience[] = [
       'Delivered core interface enabling users to track betting positions, monitor rankings, and navigate between Arlington-wide and UTA-specific prediction markets.',
     ],
   },
+];
+
+export const leadership: Experience[] = [
   {
     company: 'Society of Asian Scientists and Engineers (SASE) — UTA',
     role: 'Historian',
