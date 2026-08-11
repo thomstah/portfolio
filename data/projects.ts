@@ -17,6 +17,12 @@ export const projects: Project[] = [
     github: 'https://github.com/thomstah/DayNote',
   },
   {
+    title: 'Lyriq',
+    description: "A solo full-stack AI platform that unpacks the meaning behind songs. Built with Claude Code and Claude's tool-use mode to enforce structured JSON across 18 backend modules — all covered by 142 fast, offline pytest tests. FastAPI background tasks cut cached loads from 1–3s to ~100ms, with a per-IP rate limiter guarding a $20/mo API budget.",
+    tags: ['Next.js', 'FastAPI', 'Python', 'Anthropic Claude', 'Supabase'],
+    accentColor: '#f59e0b',
+  },
+  {
     title: 'MavBeats',
     description: 'Web platform revealing campus music trends at UTA — real-time genre insights and Top 10 charts. Grew to 900+ students using Spotify auth, Supabase, and Recharts for interactive data visualizations.',
     tags: ['JavaScript', 'React', 'Next.js', 'Node.js', 'Spotify API', 'Supabase', 'PostgreSQL'],

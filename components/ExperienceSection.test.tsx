@@ -22,6 +22,6 @@ describe('ExperienceSection', () => {
 
   it('renders CVS Health', () => {
     render(<ExperienceSection />);
-    expect(screen.getByText('CVS Health')).toBeInTheDocument();
+    expect(screen.getAllByText('CVS Health').length).toBeGreaterThan(0);
   });
 });

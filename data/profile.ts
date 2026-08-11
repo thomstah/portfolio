@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Thommy Xay',
-  title: 'SOFTWARE ENGINEERING STUDENT · UTA · DFW',
-  bio: "Rising senior undergraduate studying software engineering at UT Arlington.\nFull-stack developer with a strong suit in front-end.",
+  title: 'SOFTWARE ENGINEERING STUDENT · AI + FULL-STACK',
+  bio: "I'm a software engineering student at UT Arlington (Class of 2027), based in the Dallas–Fort Worth area.\nI recently spent a summer building agentic AI systems as an AI/ML engineering intern at CVS Health, and I spend most of my time shipping fast, thoughtful full-stack web apps.\nMostly I just like taking complicated systems and making them feel simple.",
   funFacts: [
     'Photography enthusiast',
     'Lifts regularly',
@@ -17,28 +17,37 @@ export const profile = {
 export const skills: string[] = [
   'TypeScript',
   'JavaScript',
+  'Python',
+  'Swift',
+  'Java',
+  'C / C++',
+  'SQL',
+  'HTML / CSS',
   'React',
   'Next.js',
   'Vue',
-  'Tailwind CSS',
   'Node.js',
   'Express',
+  'FastAPI',
   'Flask',
   'SwiftUI',
-  'Python',
-  'Java',
-  'C / C++',
-  'HTML / CSS',
-  'SQL',
+  'Tailwind CSS',
+  'Anthropic Claude',
+  'LLM Integration',
+  'RAG & Retrieval',
+  'Multi-Agent Orchestration',
+  'Google ADK',
+  'Vertex AI',
   'PostgreSQL',
   'Supabase',
   'REST APIs',
   'WebSocket',
+  'Docker',
   'Google Cloud Platform',
-  'Swift',
-  'Git',
-  'Agile',
   'CI/CD',
+  'Git',
+  'Jira',
+  'Agile',
 ];
 
 export interface Experience {
@@ -51,13 +60,20 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     company: 'CVS Health',
-    role: 'Software Engineering Intern',
-    period: 'May 2026',
+    role: 'AI/ML Engineering Intern · Pipeline Reliability',
+    period: 'May – Jun 2026',
     bullets: [
-      'Building an AI-powered monitoring framework for GCP Airflow pipelines with real-time failure detection and automated root-cause analysis — eliminating manual triage that caused SLA breaches.',
-      'Implementing self-healing pipelines that automatically remediate missing files, corrupted data, and schema mismatches using AI/ML classification.',
-      'Delivering a React dashboard surfacing pipeline health and failure patterns to engineering teams.',
-      'Stack: Python, Flask, React, PostgreSQL, BigQuery, Airflow, AI/ML.',
+      'Built an internal AI system that automatically diagnoses why data pipelines fail, taking triage from something that took over an hour down to under a minute.',
+      'Designed it around a human-in-the-loop safety model, so an engineer always reviews and approves any action before it runs — the system never changes production on its own.',
+    ],
+  },
+  {
+    company: 'CVS Health',
+    role: 'AI/ML Engineering Intern · Conversational AI Tooling',
+    period: 'Jun – Aug 2026',
+    bullets: [
+      'Helped replace manual, form-based internal workflows with a conversational AI agent connected to internal data tools.',
+      'Established reusable patterns and testing practices for safely integrating large language models with internal systems, which the team adopted as a template for future work.',
     ],
   },
   {
@@ -65,9 +81,9 @@ export const experiences: Experience[] = [
     role: 'Front-end Developer',
     period: 'Feb. 2026 – Present',
     bullets: [
-      'Built a point-of-sale web application for small businesses to register inventory, browse categorized menus, and process orders through an interactive order board.',
-      'Designed and implemented the front-end in React and TypeScript using TanStack Query — including a category-filtered product grid, real-time quantity badge updates, and a customer order panel.',
-      'Delivered the client-side interface that transforms a backend API into a usable product, enabling merchants to manage items and submit orders without touching a database.',
+      'Sped up checkout for 10+ small-business merchants by building a category-filtered product grid and a live order board in React and TypeScript — cutting the steps to place an order by 75%.',
+      'Wired up TanStack Query for server-state sync, so cart quantities and badges update in real time without the usual prop-drilling or manual state juggling.',
+      'Wrapped a raw backend API in a friendly interface, letting non-technical merchants manage inventory and take orders without ever touching a database.',
     ],
   },
   {
@@ -75,9 +91,9 @@ export const experiences: Experience[] = [
     role: 'Software Engineer',
     period: 'Feb. 2026 – April 2026',
     bullets: [
-      'Developed authentication, dashboard, leaderboard, and navigation system for a city-wide prediction market platform enabling UTA students and Arlington residents to bet on local and campus events.',
-      'Built features using Next.js 16, React 19, TypeScript, and Supabase; implemented secure login/register with MFA, real-time dashboard with SVG portfolio charts, auto-refreshing leaderboard, and responsive navigation.',
-      'Delivered core interface enabling users to track betting positions, monitor rankings, and navigate between Arlington-wide and UTA-specific prediction markets.',
+      'Built the authentication, dashboard, leaderboard, and navigation for a city-wide prediction market where UTA students and Arlington residents bet on local and campus events.',
+      'Used Next.js, React, TypeScript, and Supabase to ship secure login/register with MFA, a live dashboard with SVG portfolio charts, an auto-refreshing leaderboard, and responsive navigation.',
+      'Delivered the core interface that lets users track their positions, watch the rankings, and move between the Arlington-wide and UTA-specific markets.',
     ],
   },
 ];
@@ -88,7 +104,7 @@ export const leadership: Experience[] = [
     role: 'Historian',
     period: 'May 2026 – Present',
     bullets: [
-      'Documenting and preserving chapter history, events, and milestones for one of the nation\'s top SASE chapters.',
+      "Documenting and preserving the chapter’s history, events, and milestones for one of the nation’s top SASE chapters.",
     ],
   },
   {
@@ -96,7 +112,7 @@ export const leadership: Experience[] = [
     role: 'Vice President External',
     period: 'May 2025 – May 2026',
     bullets: [
-      'Led external relations and partnerships for one of the nation\'s top SASE chapters.',
+      "Led external relations and partnerships for one of the nation’s top SASE chapters.",
     ],
   },
   {
@@ -104,7 +120,7 @@ export const leadership: Experience[] = [
     role: 'Event Chair',
     period: 'May 2024 – May 2025',
     bullets: [
-      'Helped secure the organization\'s Most Influential Chapter award out of 110+ chapters nationwide.',
+      "Helped secure the organization’s Most Influential Chapter award, out of 110+ chapters nationwide.",
     ],
   },
 ];
