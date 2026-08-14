@@ -19,47 +19,92 @@ export function BioSection() {
         margin: '0 auto',
       }}
     >
-      <img
-        src="/headshot.png"
-        alt="Thommy Xay"
-        style={{
-          width:        '96px',
-          height:       '96px',
-          objectFit:    'cover',
-          objectPosition: 'center top',
-          borderRadius: '50%',
-          marginBottom: '20px',
-          border:       `2px solid ${colors.rule}`,
-        }}
-      />
+      <div style={{ display: 'flex', alignItems: 'flex-end', gap: '4px', marginBottom: '22px' }}>
+        <div style={{ position: 'relative', width: '96px', flexShrink: 0 }}>
+          <img
+            src="/headshot.png"
+            alt="Thommy Xay"
+            style={{
+              width:        '96px',
+              height:       '96px',
+              objectFit:    'cover',
+              objectPosition: 'center top',
+              borderRadius: '50%',
+              display:      'block',
+              border:       `2px solid ${colors.rule}`,
+            }}
+          />
+          <span
+            className="status-dot status-dot--avatar"
+            role="img"
+            aria-label={`Status: ${profile.status}`}
+            title={profile.status}
+          />
+        </div>
+        {/* Thought-bubble tail — small circles trailing from the headshot */}
+        <div
+          aria-hidden="true"
+          style={{ display: 'inline-flex', alignItems: 'flex-end', gap: '3px', marginBottom: '9px' }}
+        >
+          <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: colors.surface }} />
+          <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: colors.surface }} />
+        </div>
+        {/* Discord-style custom status bubble */}
+        <div
+          style={{
+            display:         'inline-flex',
+            alignItems:      'center',
+            backgroundColor: colors.surface,
+            borderRadius:    '18px',
+            padding:         '9px 15px',
+            marginBottom:    '6px',
+          }}
+        >
+          <span
+            style={{
+              fontFamily:    'var(--font-redaction)',
+              fontStyle:     'italic',
+              fontSize:      '15px',
+              letterSpacing: '0.01em',
+              color:         colors.textMuted,
+            }}
+          >
+            {profile.status}…
+          </span>
+        </div>
+      </div>
       <h1
         style={{
-          fontFamily: 'var(--font-pixelify-sans)',
-          fontSize: '40px',
+          fontFamily: 'var(--font-redaction-display)',
+          fontSize: '52px',
           fontWeight: 700,
+          lineHeight: 1.02,
+          letterSpacing: '-0.02em',
           color: colors.text,
-          marginBottom: '4px',
+          marginBottom: '8px',
         }}
       >
         {profile.name}
       </h1>
       <p
         style={{
-          fontFamily: 'var(--font-pixelify-sans)',
+          fontFamily: 'var(--font-redaction)',
+          fontStyle: 'italic',
           fontSize: fontSizes.subtitle,
-          letterSpacing: '0.3em',
+          letterSpacing: '0.01em',
+          textTransform: 'lowercase',
           color: colors.textMuted,
-          marginBottom: '24px',
+          marginBottom: '26px',
         }}
       >
         {profile.title}
       </p>
       <p
         style={{
-          fontSize: '14px',
+          fontSize: '15px',
           color: colors.text,
-          lineHeight: 1.6,
-          marginBottom: '20px',
+          lineHeight: 1.75,
+          marginBottom: '22px',
           whiteSpace: 'pre-line',
         }}
       >

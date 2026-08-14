@@ -38,9 +38,10 @@ export function SkillsSection() {
     >
       <h2
         style={{
-          fontFamily: 'var(--font-pixelify-sans)',
+          fontFamily: 'var(--font-redaction-display)',
           fontSize: fontSizes.name,
           fontWeight: 700,
+          letterSpacing: '0.02em',
           color: colors.text,
           marginBottom: '24px',
         }}
@@ -58,9 +59,9 @@ export function SkillsSection() {
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
               style={{
-                fontFamily: 'var(--font-pixelify-sans)',
+                fontFamily: 'var(--font-redaction)',
                 fontSize: fontSizes.label,
-                letterSpacing: '0.1em',
+                letterSpacing: '0.01em',
                 color: isHovered ? hoverColor : colors.textMuted,
                 border: `1px solid ${isHovered ? hoverColor : colors.rule}`,
                 padding: '4px 10px',

@@ -23,9 +23,10 @@ export function ContactSection() {
     >
       <h2
         style={{
-          fontFamily: 'var(--font-pixelify-sans)',
+          fontFamily: 'var(--font-redaction-display)',
           fontSize: fontSizes.name,
           fontWeight: 700,
+          letterSpacing: '0.02em',
           color: colors.text,
           marginBottom: '24px',
         }}
@@ -36,9 +37,10 @@ export function ContactSection() {
         href={`mailto:${profile.email}`}
         data-testid="contact-email"
         style={{
-          fontFamily: 'var(--font-pixelify-sans)',
+          fontFamily: 'var(--font-redaction)',
+          fontStyle: 'italic',
           fontSize: fontSizes.subtitle,
-          letterSpacing: '0.2em',
+          letterSpacing: '0.02em',
           color: colors.text,
           textDecoration: 'none',
           display: 'block',

@@ -5,18 +5,18 @@ import { colors, fontSizes } from '../lib/tokens';
 import type { Project } from '../data/projects';
 
 const pill = {
-  fontFamily:    'var(--font-pixelify-sans)',
+  fontFamily:    'var(--font-redaction)',
   fontSize:      fontSizes.label,
-  letterSpacing: '0.1em',
+  letterSpacing: '0.01em',
   color:         colors.textMuted,
   border:        `1px solid ${colors.rule}`,
   padding:       '2px 8px',
 } as const;
 
 const linkStyle = {
-  fontFamily:     'var(--font-pixelify-sans)',
+  fontFamily:     'var(--font-redaction)',
   fontSize:       fontSizes.label,
-  letterSpacing:  '0.1em',
+  letterSpacing:  '0.06em',
   textDecoration: 'none',
   background:     'none',
   border:         'none',
@@ -71,7 +71,7 @@ export function ProjectCard({ project }: Props) {
       >
         <h3
           style={{
-            fontFamily: 'var(--font-pixelify-sans)',
+            fontFamily: 'var(--font-redaction)',
             fontSize:   cardTitleSize,
             fontWeight: 700,
             color:      titleC,
@@ -147,7 +147,7 @@ export function ProjectCard({ project }: Props) {
           cursor:          'pointer',
         }}
       >
-        <h3 style={{ fontFamily: 'var(--font-pixelify-sans)', fontSize: cardTitleSize, fontWeight: 700, color: titleC }}>
+        <h3 style={{ fontFamily: 'var(--font-redaction)', fontSize: cardTitleSize, fontWeight: 700, color: titleC }}>
           {project.title}
         </h3>
         {tags}
@@ -167,8 +167,8 @@ export function ProjectCard({ project }: Props) {
             width: '100%', maxWidth: '520px', maxHeight: '85vh', overflowY: 'auto',
             padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: '16px',
           }}>
-            <button onClick={() => setOpen(false)} style={{ position: 'absolute', top: '16px', right: '16px', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-pixelify-sans)', fontSize: '14px', color: colors.textMuted }}>✕</button>
-            <h3 style={{ fontFamily: 'var(--font-pixelify-sans)', fontSize: cardTitleSize, fontWeight: 700, color: titleC, paddingRight: '24px' }}>
+            <button onClick={() => setOpen(false)} style={{ position: 'absolute', top: '16px', right: '16px', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-redaction)', fontSize: '14px', color: colors.textMuted }}>✕</button>
+            <h3 style={{ fontFamily: 'var(--font-redaction)', fontSize: cardTitleSize, fontWeight: 700, color: titleC, paddingRight: '24px' }}>
               {project.title}
             </h3>
             <p style={{ fontSize: '13px', color: colors.textMuted, lineHeight: 1.6 }}>{project.description}</p>

@@ -5,7 +5,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        pixel: ['var(--font-pixelify-sans)', 'sans-serif'],
+        redaction: ['var(--font-redaction)', 'Georgia', 'serif'],
+        'redaction-display': ['var(--font-redaction-display)', 'var(--font-redaction)', 'Georgia', 'serif'],
       },
     },
   },

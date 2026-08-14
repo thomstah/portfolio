@@ -23,9 +23,10 @@ export function ProjectsSection() {
     >
       <h2
         style={{
-          fontFamily: 'var(--font-pixelify-sans)',
+          fontFamily: 'var(--font-redaction-display)',
           fontSize: fontSizes.name,
           fontWeight: 700,
+          letterSpacing: '0.02em',
           color: colors.text,
           marginBottom: '24px',
         }}

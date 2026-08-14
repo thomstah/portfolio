@@ -14,9 +14,9 @@ const SECTIONS = [
 export const NAV_HEIGHT_PX = 48;
 
 const linkStyle = {
-  fontFamily: 'var(--font-pixelify-sans)',
+  fontFamily: 'var(--font-redaction)',
   fontSize: fontSizes.label,
-  letterSpacing: '0.15em',
+  letterSpacing: '0.08em',
   color: colors.textMuted,
   textDecoration: 'none',
 } as const;
@@ -76,7 +76,7 @@ export function PortfolioNav() {
           }}
         >
           {open ? (
-            <span style={{ fontFamily: 'var(--font-pixelify-sans)', fontSize: '14px', color: colors.textMuted }}>✕</span>
+            <span style={{ fontFamily: 'var(--font-redaction)', fontSize: '14px', color: colors.textMuted }}>✕</span>
           ) : (
             <>
               <span style={{ display: 'block', width: '20px', height: '2px', backgroundColor: colors.textMuted }} />

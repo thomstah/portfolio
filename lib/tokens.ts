@@ -7,9 +7,9 @@ export const colors = {
 } as const;
 
 export const fontSizes = {
-  name:     '30px',
-  subtitle: '12px',
-  label:    '11px',
+  name:     '42px',
+  subtitle: '16px',
+  label:    '15px',
 } as const;
 
 export const animation = {
