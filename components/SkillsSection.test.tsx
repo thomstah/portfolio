@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { SkillsSection } from './SkillsSection';
+import { skillCategories } from '../data/profile';
 
 vi.mock('framer-motion', () => ({
   motion: {
@@ -23,5 +24,23 @@ describe('SkillsSection', () => {
   it('renders TypeScript as a skill', () => {
     render(<SkillsSection />);
     expect(screen.getByText('TypeScript')).toBeInTheDocument();
+  });
+
+  it('groups skills into categories', () => {
+    render(<SkillsSection />);
+    expect(screen.getAllByTestId('skill-category')).toHaveLength(skillCategories.length);
+  });
+
+  it('renders every category heading', () => {
+    render(<SkillsSection />);
+    skillCategories.forEach((category) => {
+      expect(screen.getByText(category.name)).toBeInTheDocument();
+    });
+  });
+
+  it('renders every skill exactly once across categories', () => {
+    render(<SkillsSection />);
+    const total = skillCategories.reduce((n, c) => n + c.items.length, 0);
+    expect(screen.getAllByTestId('skill-tag')).toHaveLength(total);
   });
 });

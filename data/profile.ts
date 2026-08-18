@@ -14,40 +14,54 @@ export const profile = {
   email: 'thommyxay@gmail.com',
 } as const;
 
-export const skills: string[] = [
-  'TypeScript',
-  'JavaScript',
-  'Python',
-  'Swift',
-  'Java',
-  'C / C++',
-  'SQL',
-  'HTML / CSS',
-  'React',
-  'Next.js',
-  'Vue',
-  'Node.js',
-  'Express',
-  'FastAPI',
-  'Flask',
-  'SwiftUI',
-  'Tailwind CSS',
-  'Anthropic Claude',
-  'LLM Integration',
-  'RAG & Retrieval',
-  'Multi-Agent Orchestration',
-  'Google ADK',
-  'Vertex AI',
-  'PostgreSQL',
-  'Supabase',
-  'REST APIs',
-  'WebSocket',
-  'Docker',
-  'Google Cloud Platform',
-  'CI/CD',
-  'Git',
-  'Jira',
-  'Agile',
+export interface SkillCategory {
+  name: string;
+  accent: string;
+  items: string[];
+}
+
+export const skillCategories: SkillCategory[] = [
+  {
+    name: 'Languages',
+    accent: '#93c5fd',
+    items: ['TypeScript', 'JavaScript', 'Python', 'Swift', 'Java', 'C / C++', 'SQL', 'HTML / CSS'],
+  },
+  {
+    name: 'AI & Machine Learning',
+    accent: '#c4b5fd',
+    items: [
+      'Anthropic Claude',
+      'LLM Integration',
+      'RAG & Retrieval',
+      'Multi-Agent Orchestration',
+      'Google ADK',
+      'Vertex AI',
+    ],
+  },
+  {
+    name: 'Front-end',
+    accent: '#86efac',
+    items: ['React', 'Next.js', 'Vue', 'SwiftUI', 'Tailwind CSS'],
+  },
+  {
+    name: 'Back-end & Data',
+    accent: '#fdba74',
+    items: [
+      'Node.js',
+      'Express',
+      'FastAPI',
+      'Flask',
+      'PostgreSQL',
+      'Supabase',
+      'REST APIs',
+      'WebSocket',
+    ],
+  },
+  {
+    name: 'Infrastructure & Workflow',
+    accent: '#5eead4',
+    items: ['Docker', 'Google Cloud Platform', 'CI/CD', 'Git', 'Jira', 'Agile'],
+  },
 ];
 
 export interface Experience {
@@ -98,29 +112,49 @@ export const experiences: Experience[] = [
   },
 ];
 
-export const leadership: Experience[] = [
+export interface OrgRole {
+  role: string;
+  period: string;
+  bullets: string[];
+}
+
+export interface Organization {
+  name: string;
+  roles: OrgRole[];
+}
+
+export const leadership: Organization[] = [
   {
-    company: 'Society of Asian Scientists and Engineers (SASE) — UTA',
-    role: 'Historian',
-    period: 'May 2026 – Present',
-    bullets: [
-      "Documenting and preserving the chapter’s history, events, and milestones for one of the nation’s top SASE chapters.",
-    ],
-  },
-  {
-    company: 'Society of Asian Scientists and Engineers (SASE) — UTA',
-    role: 'Vice President External',
-    period: 'May 2025 – May 2026',
-    bullets: [
-      "Led external relations and partnerships for one of the nation’s top SASE chapters.",
-    ],
-  },
-  {
-    company: 'Society of Asian Scientists and Engineers (SASE) — UTA',
-    role: 'Event Chair',
-    period: 'May 2024 – May 2025',
-    bullets: [
-      "Helped secure the organization’s Most Influential Chapter award, out of 110+ chapters nationwide.",
+    name: 'Society of Asian Scientists and Engineers (SASE) — UTA',
+    roles: [
+      {
+        role: 'Historian',
+        period: 'May 2026 – Present',
+        bullets: [
+          'Documenting and preserving the chapter’s history, events, and milestones for one of the nation’s top SASE chapters.',
+        ],
+      },
+      {
+        role: 'Vice President External',
+        period: 'May 2025 – May 2026',
+        bullets: [
+          'Led external relations and partnerships for one of the nation’s top SASE chapters.',
+        ],
+      },
+      {
+        role: 'Event Chair',
+        period: 'May 2024 – May 2025',
+        bullets: [
+          'Helped secure the organization’s Most Influential Chapter award, out of 110+ chapters nationwide.',
+        ],
+      },
+      {
+        role: 'Junior Officer',
+        period: 'Nov. 2023 – May 2024',
+        bullets: [
+          'Supported chapter events and day-to-day operations as part of the officer team, and got my start in SASE leadership.',
+        ],
+      },
     ],
   },
 ];

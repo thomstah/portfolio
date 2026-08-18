@@ -3,6 +3,7 @@ export const colors = {
   surface:    '#1a1a1a',
   text:       '#e2e2e2',
   textMuted:  '#888888',
+  textSubtle: '#b3b3b3',
   rule:       '#2a2a2a',
 } as const;
 

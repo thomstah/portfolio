@@ -3,23 +3,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { colors, fontSizes, animation } from '../lib/tokens';
-import { skills } from '../data/profile';
-
-const HOVER_COLORS = [
-  '#93c5fd',
-  '#86efac',
-  '#c4b5fd',
-  '#fdba74',
-  '#f9a8d4',
-  '#fde047',
-  '#5eead4',
-  '#fca5a5',
-  '#a5b4fc',
-  '#6ee7b7',
-];
+import { skillCategories } from '../data/profile';
 
 export function SkillsSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   return (
     <motion.section
@@ -43,36 +30,66 @@ export function SkillsSection() {
           fontWeight: 700,
           letterSpacing: '0.02em',
           color: colors.text,
-          marginBottom: '24px',
+          marginBottom: '32px',
         }}
       >
         SKILLS
       </h2>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-        {skills.map((skill, i) => {
-          const hoverColor = HOVER_COLORS[i % HOVER_COLORS.length];
-          const isHovered = hoveredIndex === i;
-          return (
-            <span
-              key={skill}
-              data-testid="skill-tag"
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+        {skillCategories.map((category) => (
+          <div key={category.name} data-testid="skill-category">
+            <div
               style={{
-                fontFamily: 'var(--font-redaction)',
-                fontSize: fontSizes.label,
-                letterSpacing: '0.01em',
-                color: isHovered ? hoverColor : colors.textMuted,
-                border: `1px solid ${isHovered ? hoverColor : colors.rule}`,
-                padding: '4px 10px',
-                cursor: 'default',
-                transition: 'color 150ms ease, border-color 150ms ease',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px',
+                marginBottom: '12px',
               }}
             >
-              {skill}
-            </span>
-          );
-        })}
+              <span
+                style={{
+                  fontFamily: 'var(--font-redaction)',
+                  fontSize: '12px',
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.12em',
+                  color: colors.textSubtle,
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {category.name}
+              </span>
+              <span style={{ flex: 1, height: '1px', background: colors.rule }} />
+            </div>
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+              {category.items.map((skill) => {
+                const isHovered = hoveredSkill === skill;
+                return (
+                  <span
+                    key={skill}
+                    data-testid="skill-tag"
+                    onMouseEnter={() => setHoveredSkill(skill)}
+                    onMouseLeave={() => setHoveredSkill(null)}
+                    style={{
+                      fontFamily: 'var(--font-redaction)',
+                      fontSize: fontSizes.label,
+                      letterSpacing: '0.01em',
+                      color: isHovered ? category.accent : colors.textMuted,
+                      border: `1px solid ${isHovered ? category.accent : colors.rule}`,
+                      padding: '4px 10px',
+                      cursor: 'default',
+                      transition: 'color 150ms ease, border-color 150ms ease',
+                    }}
+                  >
+                    {skill}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        ))}
       </div>
     </motion.section>
   );

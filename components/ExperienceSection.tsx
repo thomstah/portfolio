@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { colors, fontSizes, animation } from '../lib/tokens';
-import { experiences, leadership, type Experience } from '../data/profile';
+import { experiences, leadership, type Experience, type OrgRole, type Organization } from '../data/profile';
 
 function SectionHeading({ children, first }: { children: React.ReactNode; first?: boolean }) {
   return (
@@ -31,7 +31,7 @@ function Entry({ exp, testid }: { exp: Experience; testid: string }) {
         style={{
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'baseline',
+          alignItems: 'flex-start',
           gap: '16px',
           marginBottom: '4px',
         }}
@@ -43,6 +43,7 @@ function Entry({ exp, testid }: { exp: Experience; testid: string }) {
             fontWeight: 700,
             letterSpacing: '0.01em',
             color: colors.text,
+            textWrap: 'balance',
           }}
         >
           {exp.company}
@@ -90,6 +91,98 @@ function Entry({ exp, testid }: { exp: Experience; testid: string }) {
   );
 }
 
+function TimelineRole({ entry, current }: { entry: OrgRole; current?: boolean }) {
+  return (
+    <li data-testid="leadership-item" style={{ position: 'relative', paddingLeft: '28px' }}>
+      <span
+        aria-hidden
+        style={{
+          position: 'absolute',
+          left: '-4px',
+          top: '7px',
+          width: '9px',
+          height: '9px',
+          borderRadius: '50%',
+          background: current ? colors.text : colors.background,
+          border: `1px solid ${current ? colors.text : colors.textMuted}`,
+        }}
+      />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'baseline',
+          gap: '16px',
+          marginBottom: '8px',
+        }}
+      >
+        <span
+          style={{
+            fontFamily: 'var(--font-redaction)',
+            fontSize: fontSizes.subtitle,
+            fontWeight: 700,
+            letterSpacing: '0.01em',
+            color: colors.text,
+          }}
+        >
+          {entry.role}
+        </span>
+        <span
+          style={{
+            fontFamily: 'var(--font-redaction)',
+            fontSize: fontSizes.label,
+            letterSpacing: '0.02em',
+            color: colors.textMuted,
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {entry.period}
+        </span>
+      </div>
+      <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        {entry.bullets.map((bullet) => (
+          <li key={bullet} style={{ fontSize: '14px', lineHeight: 1.6, color: colors.textMuted }}>
+            {bullet}
+          </li>
+        ))}
+      </ul>
+    </li>
+  );
+}
+
+function OrgTimeline({ org }: { org: Organization }) {
+  return (
+    <div data-testid="leadership-org">
+      <h3
+        style={{
+          fontFamily: 'var(--font-redaction)',
+          fontSize: fontSizes.subtitle,
+          fontWeight: 700,
+          letterSpacing: '0.01em',
+          color: colors.text,
+          textWrap: 'balance',
+          marginBottom: '20px',
+        }}
+      >
+        {org.name}
+      </h3>
+      <ul
+        style={{
+          listStyle: 'none',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '28px',
+          borderLeft: `1px solid ${colors.rule}`,
+        }}
+      >
+        {org.roles.map((entry, i) => (
+          <TimelineRole key={entry.role} entry={entry} current={i === 0} />
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function ExperienceSection() {
   return (
     <motion.section
@@ -114,9 +207,9 @@ export function ExperienceSection() {
       </div>
 
       <SectionHeading>LEADERSHIP</SectionHeading>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-        {leadership.map((exp) => (
-          <Entry key={`${exp.company}-${exp.role}`} exp={exp} testid="leadership-item" />
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+        {leadership.map((org) => (
+          <OrgTimeline key={org.name} org={org} />
         ))}
       </div>
     </motion.section>
