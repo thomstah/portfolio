@@ -14,15 +14,18 @@ const pill = {
 } as const;
 
 /**
- * Screenshots are sized by height so portrait phone captures sit comfortably in
- * a card. A wide desktop capture at that height would be far wider than the
- * card, so max-width keeps it inside and object-fit preserves its aspect.
+ * Screenshots fit within the card at any aspect ratio: portrait phone captures
+ * are bounded by height, wide desktop captures by width, and the frame tracks
+ * the image rather than the other way round.
  */
 const screenshotStyle = {
-  height:       '300px',
-  width:        'auto',
+  // Both dimensions are caps rather than fixed sizes, so the frame is always
+  // the size of the image inside it. A fixed height plus a capped width leaves
+  // empty bands above and below anything that is not tall and narrow.
+  maxHeight:    '300px',
   maxWidth:     '100%',
-  objectFit:    'contain' as const,
+  height:       'auto',
+  width:        'auto',
   borderRadius: '12px',
   border:       `1px solid ${colors.rule}`,
 };

@@ -39,7 +39,10 @@ describe('ProjectCard', () => {
 
     const image = screen.getAllByAltText(/screenshot 1$/)[0];
     expect(image).toHaveStyle({ maxWidth: '100%' });
-    expect(image).toHaveStyle({ objectFit: 'contain' });
+    expect(image).toHaveStyle({ maxHeight: '300px' });
+    // Both dimensions must be free to shrink, or the frame letterboxes.
+    expect(image).toHaveStyle({ height: 'auto' });
+    expect(image).toHaveStyle({ width: 'auto' });
   });
 
   it('omits github link when not provided', () => {
