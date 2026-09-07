@@ -13,6 +13,20 @@ const pill = {
   padding:       '2px 8px',
 } as const;
 
+/**
+ * Screenshots are sized by height so portrait phone captures sit comfortably in
+ * a card. A wide desktop capture at that height would be far wider than the
+ * card, so max-width keeps it inside and object-fit preserves its aspect.
+ */
+const screenshotStyle = {
+  height:       '300px',
+  width:        'auto',
+  maxWidth:     '100%',
+  objectFit:    'contain' as const,
+  borderRadius: '12px',
+  border:       `1px solid ${colors.rule}`,
+};
+
 const linkStyle = {
   fontFamily:     'var(--font-redaction)',
   fontSize:       fontSizes.label,
@@ -114,7 +128,7 @@ export function ProjectCard({ project }: Props) {
               <img
                 src={images[desktopIdx]}
                 alt={`${project.title} screenshot ${desktopIdx + 1}`}
-                style={{ height: '300px', width: 'auto', borderRadius: '12px', border: `1px solid ${colors.rule}` }}
+                style={screenshotStyle}
               />
               {images.length > 1 && (
                 <button onClick={nextDesktop} style={{ ...linkStyle, color: colors.textMuted, fontSize: '20px' }}>›</button>
@@ -188,7 +202,7 @@ export function ProjectCard({ project }: Props) {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   {images.length > 1 && <button onClick={prevModal} style={{ ...linkStyle, color: colors.textMuted, fontSize: '20px' }}>‹</button>}
                   <img src={images[modalIdx]} alt={`${project.title} screenshot ${modalIdx + 1}`}
-                    style={{ height: '300px', width: 'auto', borderRadius: '12px', border: `1px solid ${colors.rule}` }} />
+                    style={screenshotStyle} />
                   {images.length > 1 && <button onClick={nextModal} style={{ ...linkStyle, color: colors.textMuted, fontSize: '20px' }}>›</button>}
                 </div>
                 {images.length > 1 && (

@@ -26,6 +26,22 @@ describe('ProjectCard', () => {
     expect(screen.getAllByText('React').length).toBeGreaterThan(0);
   });
 
+  /**
+   * Screenshots are sized by height, which suits portrait phone captures. A
+   * wide desktop capture at the same height overflows the card unless width is
+   * constrained, which is what this guards.
+   */
+  it('keeps a screenshot inside the card whatever its aspect ratio', () => {
+    render(
+      <ProjectCard project={{ ...baseProject, images: ['/projects/wide.png'] }} />,
+    );
+    fireEvent.click(screen.getAllByText('PREVIEW')[0]);
+
+    const image = screen.getAllByAltText(/screenshot 1$/)[0];
+    expect(image).toHaveStyle({ maxWidth: '100%' });
+    expect(image).toHaveStyle({ objectFit: 'contain' });
+  });
+
   it('omits github link when not provided', () => {
     render(<ProjectCard project={baseProject} />);
     expect(screen.queryByTestId('project-github-link')).not.toBeInTheDocument();
