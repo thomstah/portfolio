@@ -74,9 +74,11 @@ export function ProjectCard({ project }: Props) {
 
   const images     = project.images ?? [];
   const accent     = project.accentColor;
-  const border     = accent ?? colors.rule;
+  // borderColor tints the frame only, for colours too dark to read as text.
+  const frame      = project.borderColor ?? accent;
+  const border     = frame ?? colors.rule;
   const titleC     = accent ?? colors.text;
-  const bgTint     = accent ? `${accent}0d` : 'transparent';
+  const bgTint     = frame ? `${frame}0d` : 'transparent';
   const cardTitleSize = project.title.length >= 13 ? '15px' : '20px';
 
   function prevDesktop() { setDesktopIdx((i) => (i - 1 + images.length) % images.length); }

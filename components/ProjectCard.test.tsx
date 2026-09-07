@@ -96,6 +96,23 @@ describe('ProjectCard', () => {
     expect(document.body.style.overflow).not.toBe('hidden');
   });
 
+  /**
+   * The app's drafting green reads fine as a border but is far too dark for
+   * text, so it must not reach the title.
+   */
+  it('tints the border without touching the title colour', () => {
+    render(
+      <ProjectCard project={{ ...baseProject, borderColor: '#2e3a34' }} />,
+    );
+
+    // jsdom normalises hex to rgb, so assert on the computed value.
+    const frame = screen.getAllByTestId('project-card')[0].firstElementChild!;
+    expect(frame).toHaveStyle({ border: '1px solid rgb(46, 58, 52)' });
+
+    const title = screen.getAllByText('Test Project')[0];
+    expect(title).toHaveStyle({ color: 'rgb(226, 226, 226)' });
+  });
+
   it('omits github link when not provided', () => {
     render(<ProjectCard project={baseProject} />);
     expect(screen.queryByTestId('project-github-link')).not.toBeInTheDocument();

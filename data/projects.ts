@@ -5,6 +5,9 @@ export interface Project {
   images?: string[];
   github?: string;
   demo?: string;
+  /** Tints the border and card wash. Does not affect the title. */
+  borderColor?: string;
+  /** Tints the border, wash and title. Needs enough contrast to read. */
   accentColor?: string;
 }
 
@@ -12,11 +15,12 @@ export const projects: Project[] = [
   {
     title: 'Resume Studio',
     description:
-      "A local workbench that replaces the chat-plus-Overleaf round trip for tailoring my resume. Paste a posting and it reports the fit before writing anything, flagging hard blockers like a two-year experience minimum instead of quietly tailoring around them. Then it rewrites from the master, compiles with Tectonic, reads what actually spilled onto page two, and trims until it fits. Every version is a real folder holding its .tex, the posting and the PDF; SQLite is only an index, so deleting it rebuilds from disk. After each pass it checks its own output against the master for invented claims and reports which measured outcomes fell off the page.",
+      "Tailors a master LaTeX resume to a job posting, compiles it, and trims it to one page by reading what actually overflowed. Flags requirements I cannot meet before writing anything, then checks its own output against the master for invented claims.",
     tags: ['Next.js', 'TypeScript', 'Anthropic Claude', 'LaTeX', 'SQLite'],
     images: ['/projects/resume-studio-fit-report.png', '/projects/resume-studio-library.png'],
     github: 'https://github.com/thomstah/resume-studio',
-    accentColor: '#c0392b',
+    // The drafting-green the app puts behind its PDF preview.
+    borderColor: '#2e3a34',
   },
   {
     title: 'DayNote',
