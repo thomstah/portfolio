@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Lightbox } from './Lightbox';
 import { colors, fontSizes } from '../lib/tokens';
 import type { Project } from '../data/projects';
 
@@ -28,7 +29,23 @@ const screenshotStyle = {
   width:        'auto',
   borderRadius: '12px',
   border:       `1px solid ${colors.rule}`,
+  cursor:       'zoom-in',
 };
+
+/**
+ * The arrows sit beside the image, so the image cannot also be 100% of the
+ * row or the row overflows the card and the whole group shifts off centre.
+ */
+const carouselRow = {
+  display:        'flex',
+  alignItems:     'center',
+  justifyContent: 'center',
+  gap:            '8px',
+  width:          '100%',
+  minWidth:       0,
+} as const;
+
+const arrowStyle = { fontSize: '20px', flexShrink: 0 } as const;
 
 const linkStyle = {
   fontFamily:     'var(--font-redaction)',
@@ -51,6 +68,9 @@ export function ProjectCard({ project }: Props) {
   // Mobile modal
   const [open,      setOpen]      = useState(false);
   const [modalIdx,  setModalIdx]  = useState(0);
+
+  // Full-size viewer, shared by both layouts
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
   const images     = project.images ?? [];
   const accent     = project.accentColor;
@@ -124,17 +144,21 @@ export function ProjectCard({ project }: Props) {
         </div>
         {showCarousel && images.length > 0 && (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', marginTop: '4px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={carouselRow}>
               {images.length > 1 && (
-                <button onClick={prevDesktop} style={{ ...linkStyle, color: colors.textMuted, fontSize: '20px' }}>‹</button>
+                <button onClick={prevDesktop} aria-label="Previous screenshot"
+                        style={{ ...linkStyle, color: colors.textMuted, ...arrowStyle }}>‹</button>
               )}
               <img
+                data-testid="project-screenshot"
                 src={images[desktopIdx]}
                 alt={`${project.title} screenshot ${desktopIdx + 1}`}
+                onClick={() => setLightboxIdx(desktopIdx)}
                 style={screenshotStyle}
               />
               {images.length > 1 && (
-                <button onClick={nextDesktop} style={{ ...linkStyle, color: colors.textMuted, fontSize: '20px' }}>›</button>
+                <button onClick={nextDesktop} aria-label="Next screenshot"
+                        style={{ ...linkStyle, color: colors.textMuted, ...arrowStyle }}>›</button>
               )}
             </div>
             {images.length > 1 && (
@@ -202,11 +226,19 @@ export function ProjectCard({ project }: Props) {
             </div>
             {images.length > 0 && (
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  {images.length > 1 && <button onClick={prevModal} style={{ ...linkStyle, color: colors.textMuted, fontSize: '20px' }}>‹</button>}
-                  <img src={images[modalIdx]} alt={`${project.title} screenshot ${modalIdx + 1}`}
+                <div style={carouselRow}>
+                  {images.length > 1 && (
+                    <button onClick={prevModal} aria-label="Previous screenshot"
+                            style={{ ...linkStyle, color: colors.textMuted, ...arrowStyle }}>‹</button>
+                  )}
+                  <img data-testid="project-screenshot"
+                    src={images[modalIdx]} alt={`${project.title} screenshot ${modalIdx + 1}`}
+                    onClick={() => setLightboxIdx(modalIdx)}
                     style={screenshotStyle} />
-                  {images.length > 1 && <button onClick={nextModal} style={{ ...linkStyle, color: colors.textMuted, fontSize: '20px' }}>›</button>}
+                  {images.length > 1 && (
+                    <button onClick={nextModal} aria-label="Next screenshot"
+                            style={{ ...linkStyle, color: colors.textMuted, ...arrowStyle }}>›</button>
+                  )}
                 </div>
                 {images.length > 1 && (
                   <div style={{ display: 'flex', gap: '6px' }}>
@@ -223,6 +255,16 @@ export function ProjectCard({ project }: Props) {
             )}
           </div>
         </div>
+      )}
+
+      {lightboxIdx !== null && (
+        <Lightbox
+          images={images}
+          index={lightboxIdx}
+          title={project.title}
+          onClose={() => setLightboxIdx(null)}
+          onIndexChange={setLightboxIdx}
+        />
       )}
     </div>
   );

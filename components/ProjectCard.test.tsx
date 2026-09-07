@@ -37,12 +37,63 @@ describe('ProjectCard', () => {
     );
     fireEvent.click(screen.getAllByText('PREVIEW')[0]);
 
-    const image = screen.getAllByAltText(/screenshot 1$/)[0];
+    const image = screen.getAllByTestId('project-screenshot')[0];
     expect(image).toHaveStyle({ maxWidth: '100%' });
     expect(image).toHaveStyle({ maxHeight: '300px' });
     // Both dimensions must be free to shrink, or the frame letterboxes.
     expect(image).toHaveStyle({ height: 'auto' });
     expect(image).toHaveStyle({ width: 'auto' });
+  });
+
+  it('opens the full-size viewer when a screenshot is clicked', () => {
+    render(
+      <ProjectCard project={{ ...baseProject, images: ['/projects/a.png', '/projects/b.png'] }} />,
+    );
+    fireEvent.click(screen.getAllByText('PREVIEW')[0]);
+    expect(screen.queryByTestId('lightbox')).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getAllByTestId('project-screenshot')[0]);
+
+    expect(screen.getByTestId('lightbox')).toBeInTheDocument();
+    // Sized against the viewport, not the card, which is the whole point.
+    expect(screen.getByTestId('lightbox-image')).toHaveStyle({ maxHeight: '82vh' });
+  });
+
+  it('closes the viewer on Escape', () => {
+    render(
+      <ProjectCard project={{ ...baseProject, images: ['/projects/a.png'] }} />,
+    );
+    fireEvent.click(screen.getAllByText('PREVIEW')[0]);
+    fireEvent.click(screen.getAllByTestId('project-screenshot')[0]);
+
+    fireEvent.keyDown(window, { key: 'Escape' });
+
+    expect(screen.queryByTestId('lightbox')).not.toBeInTheDocument();
+  });
+
+  it('pages through screenshots in the viewer with the arrow keys', () => {
+    render(
+      <ProjectCard project={{ ...baseProject, images: ['/projects/a.png', '/projects/b.png'] }} />,
+    );
+    fireEvent.click(screen.getAllByText('PREVIEW')[0]);
+    fireEvent.click(screen.getAllByTestId('project-screenshot')[0]);
+
+    expect(screen.getByTestId('lightbox-image')).toHaveAttribute('src', '/projects/a.png');
+    fireEvent.keyDown(window, { key: 'ArrowRight' });
+    expect(screen.getByTestId('lightbox-image')).toHaveAttribute('src', '/projects/b.png');
+  });
+
+  it('restores page scrolling after the viewer closes', () => {
+    render(
+      <ProjectCard project={{ ...baseProject, images: ['/projects/a.png'] }} />,
+    );
+    fireEvent.click(screen.getAllByText('PREVIEW')[0]);
+    fireEvent.click(screen.getAllByTestId('project-screenshot')[0]);
+    expect(document.body.style.overflow).toBe('hidden');
+
+    fireEvent.keyDown(window, { key: 'Escape' });
+
+    expect(document.body.style.overflow).not.toBe('hidden');
   });
 
   it('omits github link when not provided', () => {
