@@ -19,8 +19,10 @@ export const projects: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Anthropic Claude', 'LaTeX', 'SQLite'],
     images: ['/projects/resume-studio-fit-report.png', '/projects/resume-studio-library.png'],
     github: 'https://github.com/thomstah/resume-studio',
-    // The drafting-green the app puts behind its PDF preview.
+    // The app's drafting green (#2e3a34) on the border, and the same hue
+    // lightened for the title, which needs contrast the original cannot give.
     borderColor: '#2e3a34',
+    accentColor: '#70a98c',
   },
   {
     title: 'DayNote',
