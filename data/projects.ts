@@ -15,6 +15,7 @@ export const projects: Project[] = [
       "A local workbench that replaces the chat-plus-Overleaf round trip for tailoring my resume. Paste a posting and it reports the fit before writing anything, flagging hard blockers like a two-year experience minimum instead of quietly tailoring around them. Then it rewrites from the master, compiles with Tectonic, reads what actually spilled onto page two, and trims until it fits. Every version is a real folder holding its .tex, the posting and the PDF; SQLite is only an index, so deleting it rebuilds from disk. After each pass it checks its own output against the master for invented claims and reports which measured outcomes fell off the page.",
     tags: ['Next.js', 'TypeScript', 'Anthropic Claude', 'SQLite', 'LaTeX', 'Tectonic', 'CodeMirror'],
     images: ['/projects/resume-studio-fit-report.png', '/projects/resume-studio-library.png'],
+    github: 'https://github.com/thomstah/resume-studio',
     accentColor: '#c0392b',
   },
   {
