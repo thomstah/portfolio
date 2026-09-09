@@ -7,6 +7,11 @@ frontend:
         - pnpm install --frozen-lockfile
     build:
       commands:
+        # Amplify exposes console environment variables to the build, but not to
+        # the server runtime where API routes execute. Writing them into
+        # .env.production is the documented way to carry them across; the file is
+        # created at build time and never committed.
+        - env | grep -e '^NTFY_TOPIC=' >> .env.production || true
         - pnpm build
   artifacts:
     baseDirectory: .next

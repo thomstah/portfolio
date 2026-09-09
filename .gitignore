@@ -5,3 +5,8 @@ dist
 .env*.local
 .DS_Store
 out/
+
+# Local and build-time env files never belong in the repo.
+.env
+.env.*
+!.env.local.example
