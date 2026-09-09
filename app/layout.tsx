@@ -29,11 +29,14 @@ export const metadata: Metadata = {
   description: 'Software engineering portfolio',
 };
 
+import { VisitBeacon } from '../components/VisitBeacon';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${redaction.variable} ${redactionDisplay.variable} font-redaction`}>
         {children}
+              <VisitBeacon />
       </body>
     </html>
   );
